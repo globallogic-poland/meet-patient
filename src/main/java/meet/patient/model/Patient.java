@@ -11,9 +11,7 @@ public class Patient {
 
     String name;
 
-    String phone;
-
-    String email;
+    String district;
 
     String city;
 
