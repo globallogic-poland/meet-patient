@@ -1,4 +1,4 @@
-package meet.patient.model;
+package meet.patient.dto;
 
 public enum Sex {
 

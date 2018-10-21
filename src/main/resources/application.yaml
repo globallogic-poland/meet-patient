@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+
+        patient-create-requests:
+          destination: patient-create-requests
+
+        patient-create-results:
+          destination: patient-create-results
+
