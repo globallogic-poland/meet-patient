@@ -1,11 +1,38 @@
+server:
+  port: 30100
+
 spring:
   cloud:
     stream:
       bindings:
-
         patient-create-requests:
           destination: patient-create-requests
-
         patient-create-results:
           destination: patient-create-results
+        patient-get-requests:
+          destination: patient-get-requests
+        patient-get-results:
+          destination: patient-get-results
 
+  data:
+    cassandra:
+      port: 9042
+      keyspace-name: patient
+      contact-points: localhost
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+---
+spring:
+  profiles: prod
+
+  data:
+    cassandra:
+      contact-points:
+      - cassandra-0.cassandra.cassandra.svc.cluster.local
+      - cassandra-1.cassandra.cassandra.svc.cluster.local
+      - cassandra-2.cassandra.cassandra.svc.cluster.local
+
+  kafka:
+    bootstrap-servers: kafka-0.broker.kafka.svc.cluster.local:9092
