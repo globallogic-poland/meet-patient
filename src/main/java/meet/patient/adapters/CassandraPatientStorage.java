@@ -5,10 +5,11 @@ import meet.patient.model.Patient;
 import meet.patient.model.PatientKey;
 import meet.patient.ports.PatientRepository;
 import meet.patient.ports.PatientStorage;
-import org.reactivestreams.Publisher;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -22,8 +23,12 @@ public class CassandraPatientStorage implements PatientStorage {
     }
 
     @Override
-    public Flux<Patient> insert(Publisher<Patient> entities) {
-        return patientRepository.insert(entities);
+    public Flux<Patient> insert(Flux<Patient> patientFlux) {
+        return patientRepository.insert(
+                patientFlux.map(patient -> {
+                    patient.getKey().setId(UUID.randomUUID().toString());
+                    return patient;
+                }));
     }
 
     @Override

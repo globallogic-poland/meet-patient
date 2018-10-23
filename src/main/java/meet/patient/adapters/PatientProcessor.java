@@ -30,12 +30,13 @@ public class PatientProcessor {
                 .map(patientTransformer::toDto);
     }
 
-    @StreamListener
-    @Output(PATIENT_GET_RESULTS)
-    public Flux<PatientDto> findAll(@Input(PATIENT_GET_REQUESTS) Flux<Void> patients) {
-        // TODO: I'm not sure if we should handle findAll in different way
-        return patientStorage.findAll()
-                .map(patientTransformer::toDto);
-    }
+//
+//    @StreamListener
+//    @Output(PATIENT_GET_RESULTS)
+//    public Flux<PatientDto> findAll(@Input(PATIENT_GET_REQUESTS) Flux<Void> patients) {
+//        // TODO: I'm not sure if we should handle findAll in different way
+//        return patientStorage.findAll()
+//                .map(patientTransformer::toDto);
+//    }
 
 }

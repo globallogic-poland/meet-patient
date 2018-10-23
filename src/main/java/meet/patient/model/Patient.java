@@ -1,16 +1,18 @@
 package meet.patient.model;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.Singular;
-import lombok.Value;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.util.Set;
 
-@Value
 @Builder
+@Getter
+@Setter
 @Table
 public class Patient {
 
@@ -18,19 +20,19 @@ public class Patient {
     private PatientKey key;
 
     @Column
-    String firstName;
+    private String firstName;
 
     @Column
-    String lastName;
+    private String lastName;
 
     @Column
-    int age;
+    private int age;
 
     @Column
-    String sex;
+    private String sex;
 
-//    @Singular
-//    @Column
-//    Set<String> chronicDiseases;
+    @Singular
+    @Column
+    private Set<String> chronicDiseases;
 
 }

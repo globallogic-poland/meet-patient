@@ -15,7 +15,7 @@ import static java.util.Collections.singletonList;
 
 @Configuration
 @Slf4j
-@EnableReactiveCassandraRepositories(basePackages = "meet.patient.model")
+@EnableReactiveCassandraRepositories(basePackages = "meet.patient.ports")
 public class CassandraConfig extends AbstractReactiveCassandraConfiguration {
 
     @Value("${spring.data.cassandra.contact-points}")
@@ -48,7 +48,7 @@ public class CassandraConfig extends AbstractReactiveCassandraConfiguration {
     }
 
     public String[] getEntityBasePackages() {
-        return new String[] { "com.globallogic.wba.poc.prescription.repository" };
+        return new String[] { "meet.patient.model" };
     }
 
     @Override
@@ -60,7 +60,8 @@ public class CassandraConfig extends AbstractReactiveCassandraConfiguration {
         log.info("Creating {} key space", keySpaceName);
         var createKeyspaceSpecification = CreateKeyspaceSpecification.createKeyspace(keySpaceName);
         var dcr = DataCenterReplication.of("DC1", 1L); // 3L
-        createKeyspaceSpecification.ifNotExists(true).withNetworkReplication(dcr);
+//        createKeyspaceSpecification.ifNotExists(true).withNetworkReplication(dcr);
+        createKeyspaceSpecification.ifNotExists(true).withSimpleReplication(1L);
         return createKeyspaceSpecification;
     }
 
