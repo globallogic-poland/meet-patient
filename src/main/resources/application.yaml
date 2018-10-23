@@ -9,10 +9,6 @@ spring:
           destination: patient-create-requests
         patient-create-results:
           destination: patient-create-results
-        patient-get-requests:
-          destination: patient-get-requests
-        patient-get-results:
-          destination: patient-get-results
 
   data:
     cassandra:

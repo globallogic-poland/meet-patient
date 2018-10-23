@@ -9,6 +9,8 @@ import static org.springframework.data.cassandra.core.cql.PrimaryKeyType.PARTITI
 
 @Setter
 @Getter
+@EqualsAndHashCode
+@ToString
 @Builder
 @AllArgsConstructor
 @PrimaryKeyClass
