@@ -1,28 +1,38 @@
 package meet.patient.model;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Singular;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.util.Set;
 
-@Value
 @Builder
+@Getter
+@Setter
+@Table
 public class Patient {
 
-    String id;
+    @PrimaryKey
+    private PatientKey key;
 
-    String name;
+    @Column
+    private String firstName;
 
-    int age;
+    @Column
+    private String lastName;
 
-    Sex sex;
+    @Column
+    private int age;
 
-    Set<String> chronicDiseases;
+    @Column
+    private String sex;
 
-    String district;
-
-    String city;
-
-    String country;
+    @Singular
+    @Column
+    private Set<String> chronicDiseases;
 
 }
