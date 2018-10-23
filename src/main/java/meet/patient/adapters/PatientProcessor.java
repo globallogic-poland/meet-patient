@@ -11,7 +11,8 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import reactor.core.publisher.Flux;
 
-import static meet.patient.ports.PatientBindings.*;
+import static meet.patient.ports.PatientBindings.PATIENT_CREATE_REQUESTS;
+import static meet.patient.ports.PatientBindings.PATIENT_CREATE_RESULTS;
 
 @AllArgsConstructor
 @EnableBinding(PatientBindings.class)
@@ -29,14 +30,5 @@ public class PatientProcessor {
         return patientStorage.insert(patientPublisher)
                 .map(patientTransformer::toDto);
     }
-
-//
-//    @StreamListener
-//    @Output(PATIENT_GET_RESULTS)
-//    public Flux<PatientDto> findAll(@Input(PATIENT_GET_REQUESTS) Flux<Void> patients) {
-//        // TODO: I'm not sure if we should handle findAll in different way
-//        return patientStorage.findAll()
-//                .map(patientTransformer::toDto);
-//    }
 
 }
