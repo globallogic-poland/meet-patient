@@ -29,8 +29,8 @@ public class Patient {
     @Column
     String sex;
 
-    @Singular
-    @Column
-    Set<String> chronicDiseases;
+//    @Singular
+//    @Column
+//    Set<String> chronicDiseases;
 
 }

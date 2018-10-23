@@ -20,13 +20,13 @@ public class PatientDto {
 
     Sex sex;
 
-    @Singular
-    Set<String> chronicDiseases;
-    
-    String country;
+//    @Singular
+//    Set<Disease> chronicDiseases;
+
+    String district;
 
     String city;
 
-    String district;
+    String country;
 
 }

@@ -19,7 +19,7 @@ public class PatientTransformer {
                 .firstName(patient.getFirstName())
                 .lastName(patient.getLastName())
                 .id(patient.getKey().getId())
-                .chronicDiseases(patient.getChronicDiseases())
+//                .chronicDiseases(patient.getChronicDiseases())
                 .build();
     }
 
@@ -35,7 +35,7 @@ public class PatientTransformer {
                 .sex(patientDto.getSex().toString())
                 .firstName(patientDto.getFirstName())
                 .lastName(patientDto.getLastName())
-                .chronicDiseases(patientDto.getChronicDiseases())
+//                .chronicDiseases(patientDto.getChronicDiseases())
                 .build();
     }
 }

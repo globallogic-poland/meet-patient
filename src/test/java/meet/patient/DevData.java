@@ -14,7 +14,7 @@ public class DevData {
             .country("Poland")
             .city("Krakow")
             .district("District1")
-            .chronicDisease("ADHD")
+//            .chronicDisease("ADHD")
             .sex(Sex.MALE)
             .age(25)
             .build();
@@ -28,7 +28,7 @@ public class DevData {
                     .build())
             .lastName("Smith")
             .firstName("Robert")
-            .chronicDisease("ADHD")
+//            .chronicDisease("ADHD")
             .sex(Sex.MALE.toString())
             .age(25)
             .build();
