@@ -1,5 +1,6 @@
 package meet.patient;
 
+import meet.patient.dto.Disease;
 import meet.patient.dto.PatientDto;
 import meet.patient.dto.Sex;
 import meet.patient.model.Patient;
@@ -14,7 +15,7 @@ public class DevData {
             .country("Poland")
             .city("Krakow")
             .district("District1")
-//            .chronicDisease("ADHD")
+            .chronicDisease(Disease.ADHD)
             .sex(Sex.MALE)
             .age(25)
             .build();
@@ -28,7 +29,7 @@ public class DevData {
                     .build())
             .lastName("Smith")
             .firstName("Robert")
-//            .chronicDisease("ADHD")
+            .chronicDisease("ADHD")
             .sex(Sex.MALE.toString())
             .age(25)
             .build();

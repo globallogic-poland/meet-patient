@@ -1,4 +1,4 @@
-package meet.patient.config.cassandra;
+package meet.patient.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

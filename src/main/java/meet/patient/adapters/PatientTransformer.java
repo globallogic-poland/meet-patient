@@ -19,15 +19,17 @@ public class PatientTransformer {
                 .map(Disease::valueOf)
                 .collect(Collectors.toList());
 
+        PatientKey key = patient.getKey();
+
         return PatientDto.builder()
                 .age(patient.getAge())
                 .sex(Sex.valueOf(patient.getSex()))
-                .country(patient.getKey().getCountry())
-                .city(patient.getKey().getCity())
-                .district(patient.getKey().getDistrict())
+                .country(key.getCountry())
+                .city(key.getCity())
+                .district(key.getDistrict())
                 .firstName(patient.getFirstName())
                 .lastName(patient.getLastName())
-                .id(patient.getKey().getId())
+                .id(key.getId())
                 .chronicDiseases(diseases)
                 .build();
     }
@@ -38,13 +40,15 @@ public class PatientTransformer {
                 .map(Enum::toString)
                 .collect(Collectors.toList());
 
+        PatientKey patientKey = PatientKey.builder()
+                .id(patientDto.getId())
+                .country(patientDto.getCountry())
+                .city(patientDto.getCity())
+                .district(patientDto.getDistrict())
+                .build();
+
         return Patient.builder()
-                .key(PatientKey.builder()
-                        .id(patientDto.getId())
-                        .country(patientDto.getCountry())
-                        .city(patientDto.getCity())
-                        .district(patientDto.getDistrict())
-                        .build())
+                .key(patientKey)
                 .age(patientDto.getAge())
                 .sex(patientDto.getSex().toString())
                 .firstName(patientDto.getFirstName())
